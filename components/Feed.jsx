@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import Post from "./Post";
+
 function Feed() {
   const { user } = useContext(AuthContext);
   const [userData, setUserData] = useState({});
@@ -34,9 +35,9 @@ function Feed() {
     console.log(user.uid);
     const unsub = onSnapshot(
       query(collection(db, "posts"), orderBy("timestamp", "desc")),
-      (snaps) => {
+      (snapshot) => {
         let tempArray = [];
-        snaps.docs.map((doc) => tempArray.push(doc.data()));
+        snapshot.docs.map((doc) => tempArray.push(doc.data()));
         console.log(tempArray);
         setPosts([...tempArray]);
       }
@@ -45,6 +46,43 @@ function Feed() {
       unsub();
     };
   }, []);
+
+  const callback = (entries) => {
+    entries.forEach((entry) => {
+      let ele = entry.target.childNodes[1];
+      console.log("ele : " , ele );
+      ele.play().then(() => {
+        if (!ele.paused && !entry.isIntersecting) {
+          console.log("isIntersecting : ", entry.isIntersecting);
+          ele.pause();
+        }
+      });
+    });
+  };
+
+  let options = {
+    threshold: 0.6,
+  };
+
+  let observer = new IntersectionObserver(callback, options);
+
+  useEffect(() => {
+    const elements = document.querySelectorAll(".videos-container");
+    console.log("elements : ", elements);
+    let postContainer = elements[0].childNodes;
+    console.log("postContainer : ",postContainer);
+    postContainer.forEach((video) => {
+      console.log("childNodes : ", video.childNodes[1]);
+       observer.observe(video);
+    });
+
+    //cleanup 
+    return () => {
+      observer.disconnect();
+    }
+  }, [posts]);
+
+
   return (
     <div className="feed-container">
       <Navbar userData={userData} />

@@ -69,10 +69,12 @@ function Upload({userData}) {
       },
       () => {
         // Upload completed successfully, now we can get the download URL
+        setLoading(false);
         getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
           console.log("File available at", downloadURL);
           let postObj = {
             likes: [] ,
+            comments: [] ,
             postID : uid ,
             userID : userData.uid ,
             postURL : downloadURL ,
@@ -85,7 +87,7 @@ function Upload({userData}) {
           console.log("post added to postcollection ");
 
           // Update in users , posts ka array
-          await updateDoc(doc(db,"user",userData.uid),{
+          await updateDoc(doc(db,"users",userData.uid),{
             posts : arrayUnion(uid),
           });
           console.log("Posts array added to user doc");

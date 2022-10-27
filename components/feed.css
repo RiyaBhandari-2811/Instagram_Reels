@@ -46,24 +46,29 @@
     width:20rem;
     margin-bottom: 0.6rem;
     margin-top: 1rem;
+    border: 2px solid black;
+}
+
+.header{
+    color: black;
+    height: 3rem;
+    width: 100%;
 }
 
 .post-container>video{
-    height: 100%;
-    width:20rem;
+    height: calc(100% - 5.5rem);
+    width:19.8rem;
     object-fit: contain;
-    background-color: lightpink;
-    border-radius: 15px;
+    background-color: #dfdfdfc2;
     position: relative;
 }
 
-.video-info{
-    position: absolute;
+.post-info{
     width: 20rem;
+    margin-top: 0.2rem;
+    font-size: medium;
     display: flex;
-    justify-content: space-around;
-    bottom: 55px;
-
+    justify-content: space-evenly;
 }
 
 .avatar-container{
@@ -73,13 +78,15 @@
 }
 
 .avatar-container>p{
-    margin-left: 0.2rem;
+    margin-left: 1rem;
+    font-size: medium;
+    font-weight: 600;
+    text-transform: capitalize;
 }
 
-.post-like{
-    width: 20%;
+.likes{
+    
     display: flex;
-    flex-direction: column;
 }
 
 

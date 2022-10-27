@@ -70,7 +70,7 @@ function index() {
               password,
               downloadURL,
               uid: userInfo.user.uid,
-              posts ,
+              posts : [] ,
             };
             // doc ((db,collection name, document name ), jo data put karna hai) 
             await setDoc(doc(db, "users", userInfo.user.uid), userData);

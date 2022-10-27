@@ -21,10 +21,11 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 const ResponsiveAppBar = ({ userData }) => {
+  const router = useRouter();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
   const { logout } = React.useContext(AuthContext);
-  const router = useRouter();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -42,7 +43,9 @@ const ResponsiveAppBar = ({ userData }) => {
   };
 
   const handleLogout = async () => {
+    console.log("logout called");
     await logout();
+    console.log("logout after");
     router.push("/login");
   };
 
