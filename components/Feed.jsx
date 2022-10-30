@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import Navbar from "./Navbar";
+import Navbar from "./NavBar";
 import Upload from "./Upload";
 import { AuthContext } from "../context/auth";
 import { useState } from "react";
@@ -37,7 +37,7 @@ function Feed() {
       query(collection(db, "posts"), orderBy("timestamp", "desc")),
       (snapshot) => {
         let tempArray = [];
-        snapshot.docs.map((doc) => tempArray.push(doc.data()));
+        snapshot.docs.map((doc , idx) => tempArray.push(doc.data()));
         console.log(tempArray);
         setPosts([...tempArray]);
       }
