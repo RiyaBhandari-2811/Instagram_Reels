@@ -72,7 +72,7 @@ const ResponsiveAppBar = ({ userData }) => {
               textDecoration: "none",
             }}
           >
-            <Image src={insta} width={200} height={55} />
+            <Image src={insta} width={200} height={55} alt="Img" />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "flex" } }}>

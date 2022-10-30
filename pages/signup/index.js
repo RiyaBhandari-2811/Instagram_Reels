@@ -12,7 +12,7 @@ import { db, storage } from "../../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { setDoc, doc } from "firebase/firestore";
 
-function index() {
+function Index() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -94,7 +94,7 @@ function index() {
   return (
     <div className="signup-container">
       <div className="signup-card">
-        <Image src={logo} />
+        <Image src={logo} alt="logo" />
         <TextField
           id="outlined-basic"
           size="small"
@@ -161,7 +161,7 @@ function index() {
         </div>
       </div>
       <div className="bottom-card">
-        Already Have an account ?{" "}
+        Already Have an account ?
         <Link href="/login">
           <span style={{ color: "blueviolet", cursor: "pointer" }}>Login</span>
         </Link>
@@ -170,4 +170,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

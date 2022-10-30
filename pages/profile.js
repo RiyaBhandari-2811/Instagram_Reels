@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import React, { useContext } from 'react'
-import Profile from '../components/Profile'
+import Profile1 from '../components/Profile1'
 import { AuthContext } from '../context/auth';
 
-const profile = () => {
+const Profile = () => {
   const {user} = useContext(AuthContext);
   
   const Redirect = () => {
@@ -13,11 +13,11 @@ const profile = () => {
   return (
     <div>
       {
-        user?.uid?<Profile/> : <Redirect/>
+        user?.uid?<Profile1/> : <Redirect/>
       }
         
     </div>
   )
 }
 
-export default profile
+export default Profile

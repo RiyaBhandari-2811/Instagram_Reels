@@ -12,7 +12,7 @@ import bg5 from "../../assets/bg5.jpg";
 import { AuthContext } from "../../context/auth";
 import { useRouter } from "next/router";
 import Link from "next/link";
-function index() {
+function Index() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -60,11 +60,11 @@ function index() {
           stopOnHover
           showStatus={false}
         >
-          <Image src={bg1} />
-          <Image src={bg2} />
-          <Image src={bg3} />
-          <Image src={bg4} />
-          <Image src={bg5} />
+          <Image src={bg1} alt="Img" />
+          <Image src={bg2} alt="Img" />
+          <Image src={bg3} alt="Img" />
+          <Image src={bg4} alt="Img" />
+          <Image src={bg5} alt="Img" />
         </Carousel>
       </div>
       <div>
@@ -93,8 +93,8 @@ function index() {
           />
           {/* If error is present then show error */}
           {error!="" && <div style={{ color: "red" }}>{error}</div>}
-          <div style={{ color: "blue", marginTop: "0.5rem" }}>
-            Forget Password{" "}
+          <div style={{ color: "blue", marginTop: "0.5rem" , cursor:"pointer" }}>
+            <Link href="./forgot">Forget Password</Link>
           </div>
 
           <Button
@@ -108,7 +108,7 @@ function index() {
           </Button>
         </div>
         <div className="bottom-card">
-          Don't Have an account ?{" "}
+          Do not Have an account ?
           <Link href="./signup">
             <span style={{ color: "blueviolet" , cursor:"pointer"}}>Signup</span>
           </Link>
@@ -118,4 +118,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;
