@@ -1,5 +1,5 @@
 import React, { useContext,useEffect, useState } from "react";
-import Navbar from "./Navbar";
+import NavBar from "./NavBar";
 import Image from "next/image";
 import user from "../assets/avatar.png";
 import { AuthContext } from "../context/auth";
@@ -48,7 +48,7 @@ function Profile1() {
 
   return (
     <div>
-      <Navbar userData={userData} />
+      <NavBar userData={userData} />
       <div>
         <div className="profile-intro">
           <div

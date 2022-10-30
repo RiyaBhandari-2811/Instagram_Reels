@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import Navbar from "./NavBar";
+import NavBar from "./NavBar";
 import Upload from "./Upload";
 import { AuthContext } from "../context/auth";
 import { useState } from "react";
@@ -85,7 +85,7 @@ function Feed() {
 
   return (
     <div className="feed-container">
-      <Navbar userData={userData} />
+      <NavBar userData={userData} />
       <Upload userData={userData} />
       <div className="videos-container">
         {posts.map((post , idx) => (
